@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        @for (product of products; track $index) {   <!-- use $index until id is available -->
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <div class="card-body text-center">
+
+                <!-- ✅ property binding for src and routerLink -->
+                <a [routerLink]="['/products', product.id]">
+                  <img [src]="product.imageUrl" class="image-responsive" [alt]="product.name">
+                </a>
+
+                <a [routerLink]="['/products', product.id]">
+                  <h1>{{ product.name }}</h1>
+                </a>
+
+                <div class="location">
+                  <i class="fa fa-usd"></i>
+                  {{ product.unitPrice | currency }}   <!-- optional currency pipe -->
+                </div>
+
+                <hr>
+
+                <div class="card-text">
+                  <button class="btn btn-primary" (click)="addToCart(product)">
+                    ADD TO CART
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
