@@ -49,11 +49,11 @@ export class ProductDetails implements OnInit {
     //get the "id" param string . convert string to a number using the "+" symbol
     const theProductId:number=+this.route.snapshot.paramMap.get('id')!;
  
-    this.productService.getProductList(theProductId).subscribe(
-      data=>{
-        this.product=data[0];
+    this.productService.getProduct(theProductId).subscribe(
+      data => {
+        this.product = data;
       }
-    )
+    );
   }
  
   handleProductDetail(): void {
